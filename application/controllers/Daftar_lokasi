@@ -1,0 +1,63 @@
+<?php
+
+
+class Daftar_user_controller extends CI_Controller{
+
+
+    function __construct(){
+        parent::__construct();
+
+        if($this->session->userdata('masuk') != TRUE){
+           
+            redirect('/login_controller');
+        }
+        $this->load->model('Absen_model');
+       
+    }
+
+    function _remap($param) {
+        $this->index($param);
+    }
+
+    public function index(){
+
+        // $data['kehadiran'] = $this->Absen_model->getKehadiran();
+     
+        
+        // $this->load->view('_partials/head');
+		// $this->load->view('_partials/header');
+		// $this->load->view('v_kehadiran', $data);
+		// $this->load->view('_partials/sidebar');
+        // $this->load->view('_partials/js');
+        $id = $this->uri->segment('2');
+        
+        $data['daftar_user'] = $this->Absen_model->getDaftarUser($id);
+        $data['adminOPD'] = $this->Absen_model->getAdminOPD();
+
+        
+        $this->load->view('_partials/head');
+		$this->load->view('_partials/header');
+		$this->load->view('v_daftar_user', $data);
+		$this->load->view('_partials/sidebar', $data);
+		$this->load->view('_partials/js');
+    }
+
+    public function hapus_device_id(){
+    //     $id = $this->input->post("id");
+    // $this->Absen_model->hapusDeviceID($id);
+    // redirect('daftar_user_controller');
+
+    $id = $this->input->post('id', true);
+       
+        if ($this->Absen_model->hapusDeviceID($id)) {
+            $this->session->set_flashdata('success', 'device id' . " " . 'sukses');
+            // reset_cache_data_on_change();
+        } else {
+            $this->session->set_flashdata('error', 'gagal');
+        }
+
+    } 
+
+   
+
+}

@@ -1,0 +1,72 @@
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+### CodeIgniter ###
+*/config/development
+*/logs/log-*.php
+!*/logs/index.html
+*/cache/*
+!system/cache/*
+!*/cache/index.html
+!*/cache/.htaccess
+
+user_guide_src/build/*
+user_guide_src/cilexer/build/*
+user_guide_src/cilexer/dist/*
+user_guide_src/cilexer/pycilexer.egg-info/*
+
+#codeigniter 3
+application/logs/*
+!application/logs/index.html
+!application/logs/.htaccess
+!application/config/*
+logs/*
+foto/*
+/test/
+BACKUP/*
+/vendor/
+
+.ftpquota
+.htaccess
+.user.ini
+*.tar
+*.apk
+*.jpeg
+*.png
+*.jpg
+### CodeIgniter Patch ###
+
+
+#### CPANEL 
+.cpanel.yml
+
+### Local History for Visual Studio Code
+.history/
+### ignore file mobile absensi 
+/file_absen/
+test/*
+application/config/*
+application/config/config.php
+application/config/database.php
+**/config.php
+**/database.php
+file_absen/*
+foto/*
+error_log
+application/views/* copy.php
+chace/*
+
+limit_access.php
+
+# php config
+php.ini
+
+
+## API ABSEN ONLINE
+api_android/*
+api_mobile/*
+api_mobile/*
