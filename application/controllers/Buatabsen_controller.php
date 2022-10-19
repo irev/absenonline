@@ -140,7 +140,7 @@ class Buatabsen_controller extends CI_Controller{
             $this->input->post('nip') != '' ||
             $this->input->post('file') != ''
         ){
-            $config['upload_path']          = 'file_absen/';
+            $config['upload_path']          = $_SERVER['DOCUMENT_ROOT'].'/file_absen/';
             $config['allowed_types']        = 'pdf';
             $config['max_size']             = 100;
             //$config['max_width']            = 1024;
@@ -148,8 +148,20 @@ class Buatabsen_controller extends CI_Controller{
             $this->load->library('upload', $config);
             if ( ! $this->upload->do_upload('file'))
             {
+                    $id = $this->session->userdata('username');
+                    $data['daftar_user'] = $this->Absen_model->getDaftarUser($id);
+                    $data['adminOPD'] = $this->Absen_model->getAdminOPD();
+                    $data['nama_instansi']= $this->Absen_model->getNamaOPDbyUsernameAdmin($id);
+                    $jumlah_user = 0;
+                    $username = $this->session->userdata('username');  
+                    $alluser = $this->Absen_model->getDaftarUser($username);
                     $error = array('error' => $this->upload->display_errors());
-                    $this->load->view('form_upload', $error);
+                    // view file
+                    $this->load->view('_partials/head');
+                    $this->load->view('_partials/sidebar', $data);
+                    $this->load->view('_partials/header');
+                    $this->load->view('v_buat_absen_request_form', $error);
+                    $this->load->view('_partials/js');
             }else{
                 $file_data = $this->upload->data();
                 $imgdata = file_get_contents($file_data['full_path']);

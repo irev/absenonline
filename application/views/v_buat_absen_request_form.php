@@ -37,6 +37,9 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
+                                    <?php if(isset($error)): ?>
+                                    <div class="alert alert-danger"><?php echo $error.' '.$_SERVER['DOCUMENT_ROOT']; ?></div>
+                                    <?php endif; ?>
                                 <form action="<?= base_url(); ?>buatabsen_controller/RequestCreate" enctype="multipart/form-data" method="post">
                                     <div class="form-group col-sm-12">
                                         <label>Nomor Surat</label>
