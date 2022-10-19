@@ -57,14 +57,12 @@ application/config/database.php
 file_absen/*
 foto/*
 error_log
-application/views/* copy.php
-
-
+application/views/* 
+copy.php
+file_absen/*
 limit_access.php
-
 # php config
 php.ini
-
 
 ## API ABSEN ONLINE
 api_android/*
@@ -82,6 +80,8 @@ GPUCache/*
 Local Stage/*
 Crashpad/*
 foto/*
-Cookies
-Cookies-journal
-Network Persistent State
+Cookies/*
+Cookies-journal/*
+Network Persistent State/*
+logs/*
+x/*
