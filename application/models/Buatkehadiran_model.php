@@ -75,19 +75,19 @@ class Buatkehadiran_model extends CI_model
     // Request absen manual Pegawai row
     public function getRequestrow($id_admin_instansi, $id){
         $array = array('id_admin_instansi' => $id_admin_instansi, 'parent' => $id );
-        $this->db->order_by('tgl_absen', 'DESC');
+        $this->db->order_by('tgl_absen', 'ASC');
         return $this->db->get_where('absen_request', $array);
     }
     // get list request absen by admin 
     public function getRequestListAdmin($admin_instansi, $id){
         $array = array('admin_instansi' => $admin_instansi, 'parent' => $id );
-        $this->db->order_by('tgl_absen', 'DESC');
+        $this->db->order_by('tgl_absen', 'ASC');
         return $this->db->get_where('absen_request', $array);
     }
 
     public function getRequestList($id){
         $array = array('admin_instansi' => $id_admin_instansi);
-        $this->db->order_by('tgl', 'DESC');
+        $this->db->order_by('tgl', 'ASC');
         return $this->db->get_where('absen_request', $array)->result_array();
     }
 
@@ -99,14 +99,14 @@ class Buatkehadiran_model extends CI_model
             return false;
         }
         $array = array('admin_instansi' => $id_admin_instansi);
-        $this->db->order_by('tgl', 'DESC');
+        $this->db->order_by('tgl', 'ASC');
         return $this->db->get_where('absen_permohonan', $array)->result_array();
     }
 
     public function getPengajuanRow($id_admin_instansi=null)
     {
         $array = array('admin_instansi' => $id_admin_instansi, 'status'=> 1);
-        $this->db->order_by('tgl', 'DESC');
+        $this->db->order_by('tgl', 'ASC');
         return $this->db->get_where('absen_permohonan', $array)->num_rows();
     }
 

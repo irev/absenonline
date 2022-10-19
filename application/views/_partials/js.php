@@ -586,7 +586,7 @@ $(document).ready(function() {
             console.log(data);
             if(data.success == true){
                 alert('Data berhasil diposting !');
-                    location.reload();
+                    windows.reload();
             }else{
                     countTR();
                     btnPosting();
