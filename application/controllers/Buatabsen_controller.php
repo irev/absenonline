@@ -104,7 +104,9 @@ class Buatabsen_controller extends CI_Controller{
             }
             //var_dump($data);
             $sql = $this->Buatkehadiran_model->save_batch('absen_request',$data);
-            setcookie('samesite-test', '1',0, '/; samesite=strict');
+            
+            header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
+
             if($sql){
                 echo  json_encode(['success'=>true]);
             }else{
@@ -127,7 +129,8 @@ class Buatabsen_controller extends CI_Controller{
         }
         $data['alluser'] = $jumlah_user;
 
-        setcookie('ci_session', '1',0, '/; samesite=strict');
+        //setcookie('ci_session', '1',0, '/; samesite=strict');
+        header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebar', $data);
