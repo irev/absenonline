@@ -58,7 +58,7 @@ file_absen/*
 foto/*
 error_log
 application/views/* copy.php
-chace/*
+
 
 limit_access.php
 
@@ -70,3 +70,18 @@ php.ini
 api_android/*
 api_mobile/*
 api_mobile/*
+
+blob_storage/*
+Chace/*
+chace/*
+Code Chace/*
+CachedExtensions/*
+CachedData/*
+configurationDefaults/*
+GPUCache/*
+Local Stage/*
+Crashpad/*
+foto/*
+Cookies
+Cookies-journal
+Network Persistent State
