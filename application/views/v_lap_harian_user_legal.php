@@ -269,7 +269,6 @@ for ($y = 1; $y <= 12; $y++) {
     echo "<option value=" . $y . ">" . $bln . "</option>";
 }
 echo "</select> ";
-
 $nowYear = date('Y');
 $first_day_this_month = date('01'); // hard-coded '01' for first day
 $last_day_this_month  = date('m-t-Y');
@@ -283,15 +282,14 @@ $last_day_this_month_day_only = explode("-", $last_day_this_month);
 echo "<button type='submit'>Tampil</button>";
 echo form_close();
 echo "</div>";
+
+if($this->input->post('bulan'))? die; :'';
 ?>
         <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
         <?php echo"<hr>
 </center>";
 ?>
         <!-- NO PRINT-->
-
-
-
         <div id="tblData">
             <?php 
             // ambil data hari
@@ -429,82 +427,6 @@ echo "</div>";
                 <?php $num++; } endfor; ?>
             </table>
         </div>
-
-
-        <?php
- 
-echo "<center class='no-print'><div class='tab-content'>";
-echo "<h5>LAPORAN HARIAN ABSENSI</h5>";
-$nowYear = date('Y');
-echo form_open(base_url('laporan_harian_controller/view/'.$user.'/'.$idp), 'target="_blank"', 'hidden');
-echo "Laporan Harian : <select name='tahun'>";
-echo "<option value=" . date('Y') . ">" . date('Y') . "</option>";
-for ($y = 2020; $y <= $nowYear; $y++) {
-    echo "<option value=" . $y . ">" . $y . "</option>";
-}
-echo "</select> ";
-echo "<select name='bulan'>";
-echo "<option value=" . date('m') . ">" . date('F') . "</option>";
-for ($y = 1; $y <= 12; $y++) {
-    switch ($y) {
-        case '1':
-            $bln = 'Januari';
-            break;
-        case '2':
-            $bln = 'Februari';
-            break;
-        case '3':
-            $bln = 'Maret';
-            break;
-        case '4':
-            $bln = 'April';
-            break;
-        case '5':
-            $bln = 'Mei';
-            break;
-        case '6':
-            $bln = 'Juni';
-            break;
-        case '7':
-            $bln = 'Juli';
-            break;
-        case '8':
-            $bln = 'Agustus';
-            break;
-        case '9':
-            $bln = 'September';
-            break;
-        case '10':
-            $bln = 'Oktober';
-            break;
-        case '11':
-            $bln = 'November';
-            break;
-        case '12':
-            $bln = 'Desember';
-            break;
-        default:
-            $bln = date('M');
-            break;
-    }
-    echo "<option value=" . $y . ">" . $bln . "</option>";
-}
-echo "</select> ";
-
-$nowYear = date('Y');
-$first_day_this_month = date('01'); // hard-coded '01' for first day
-$last_day_this_month  = date('m-t-Y');
-$last_day_this_month_day_only = explode("-", $last_day_this_month);
-echo "<select name='date'>";
-echo "<option value=" . date('d') . ">" . date('d') . "</option>";
-for ($dt = 1; $dt <= 31; $dt++) {
-    echo "<option value=" . $dt . ">" . $dt . "</option>";
-}
-echo "</select> ";
-echo "<button type='submit'>Tampil</button>";
-echo form_close();
-echo "</div></center>";
-?>
         </div>
         </div>
         </div>
