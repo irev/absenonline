@@ -57,16 +57,31 @@ application/config/database.php
 file_absen/*
 foto/*
 error_log
-application/views/* copy.php
-chace/*
-
+application/views/* 
+copy.php
+file_absen/*
 limit_access.php
-
 # php config
 php.ini
-
 
 ## API ABSEN ONLINE
 api_android/*
 api_mobile/*
 api_mobile/*
+
+blob_storage/*
+Chace/*
+chace/*
+Code Chace/*
+CachedExtensions/*
+CachedData/*
+configurationDefaults/*
+GPUCache/*
+Local Stage/*
+Crashpad/*
+foto/*
+Cookies/*
+Cookies-journal/*
+Network Persistent State/*
+logs/*
+x/*
