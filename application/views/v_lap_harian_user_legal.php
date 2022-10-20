@@ -341,8 +341,9 @@ if(! $this->input->post('bulan')){ die; }
                     $times = [];
                     //echo json_encode($laporan);
                     // var_dump($laporan);
-                     
+                    $nama_atasan = "---------------"; 
                     foreach ($laporan as $data):
+                        $nama_atasan = $data["nama_atasan"];
                         $tgl_data = $data["tgl"];
                         if($tgl_data == $tgl):
                             if ($data["status"] == 1) {
