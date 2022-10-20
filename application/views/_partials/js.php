@@ -580,6 +580,10 @@ $(document).ready(function() {
                 url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->uri->segment('3'); ?>',
                 data: $('#form-multiple').serialize(),
                 dataType: 'json',
+                beforeSend: function (xhr){ 
+                xhr.setRequestHeader('Authorization', 'Token 36d417'); 
+                xhr.setRequestHeader('Accept', 'application/json'); 
+              }
                 //contentType: 'application/x-www-form-urlencoded',
                 //cache: false,
                 //encode: true,
