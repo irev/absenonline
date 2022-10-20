@@ -580,8 +580,9 @@ $(document).ready(function() {
                 url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->post("idx"); ?>',
                 data: $('#form-multiple').serialize(),
                 dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded'
-                //encode: true,
+                contentType: 'application/x-www-form-urlencoded',
+                cache: false,
+                encode: true,
                 //success: 'success'
             }).done(function (data) {
             console.log(data);
