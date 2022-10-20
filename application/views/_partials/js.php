@@ -579,7 +579,8 @@ $(document).ready(function() {
                 type: "POST",
                 url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->post("idx"); ?>',
                 data: $('#form-multiple').serialize(),
-                dataType: 'jsonp',
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded'
                 //encode: true,
                 //success: 'success'
             }).done(function (data) {
