@@ -595,7 +595,7 @@ $(document).ready(function() {
                     btnPosting();
             }
             });
-        event.preventDefault();
+            event.preventDefault();
         });
         
         $('#checkbox-done').click(function () {
@@ -661,6 +661,7 @@ $(document).ready(function() {
             });
         event.preventDefault();
     });
+    
     var checkboxAll = function(params) {
         if($('#checkbox-all').prop("checked")){
             $('.checkbox').prop("checked", true);
