@@ -572,7 +572,7 @@ $(document).ready(function() {
             countTR();
             btnPosting();
         });
-        /*
+        
         $("form#form-multiple").submit(function (event) { 
             $('#posting').html('Prosess');
             $.ajax({
@@ -601,7 +601,7 @@ $(document).ready(function() {
             });
            // event.preventDefault();
         });
-        */
+        
         $('#checkbox-done').click(function () {
             //console.log('#checkbox-done click');
             btnPosting();

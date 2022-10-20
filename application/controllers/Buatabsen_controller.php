@@ -117,6 +117,9 @@ class Buatabsen_controller extends CI_Controller{
                 header("Content-Type: application/json");
                 echo  json_encode(['success'=>false]);
             }
+            if($sql){
+                redirect('/buatabsen_controller/RequestItemForm/'.$parent);
+            }
     }
 
     function RequestForm($id_request=null){
