@@ -202,9 +202,7 @@ class Buatabsen_controller extends CI_Controller{
         echo "RequestList";
     }
 
-    function RequestItemForm($id=null){
-        var_dump($id);
-        $idx = $id[0];
+    function RequestItemForm($idx=null){
         if($idx == null){
            redirect('/buatabsen_controller');
         }
