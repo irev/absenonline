@@ -203,9 +203,6 @@ class Buatabsen_controller extends CI_Controller{
     }
 
     function RequestItemForm($idx=null){
-        var_dump($idx);
-        //echo $idx[0];
-        //die;
         if($idx[0] == null){
            redirect('/buatabsen_controller');
         }
@@ -236,7 +233,7 @@ class Buatabsen_controller extends CI_Controller{
 		if($data_count < 1){
             $this->load->view('v_buat_absen', $data);
         }else{
-            $data['pegawai'] = $this->Buatkehadiran_model->getRequestrow($admin_id,$idx)->result_array();
+            $data['pegawai'] = $this->Buatkehadiran_model->getRequestrow($admin_id,$id_paren)->result_array();
             $this->load->view('v_buat_absen_userlist', $data);
         }
         
