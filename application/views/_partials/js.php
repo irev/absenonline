@@ -545,7 +545,7 @@ $(document).ready(function() {
     $.fn.pernyataan = function() {
         this.html('<p><input type="checkbox" name="pernyataan" value="ya"><label for="pernyataan">  Data diatas sudah benar.</label><br></p>');
     };
-
+    // ========================= buatabsen_controller ================================ //
     //$(document).ready(function() { });
         $(".add_form").click(function() {
             var tr_rand = 'tr-'+Math.floor(Math.random() * 500)+Math.floor(Math.random() * 200);
