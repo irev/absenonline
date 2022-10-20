@@ -289,9 +289,12 @@ echo form_close();
 echo "</div>";
 
 if(! $this->input->post('bulan')){ die; }
+if(count($laporan) != 0){
 ?>
-        <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
-        <?php echo"<hr>
+    <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
+<?php 
+}
+echo"<hr>
 </center>";
 //cek jumlah laporan yang ada
 if(count($laporan) == 0){
