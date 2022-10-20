@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="id">
-
     <head>
         <meta charset="utf-8">
         <title>DAFTAR LAPORAN KERJA HARIAN</title>
@@ -283,7 +282,7 @@ echo "<button type='submit'>Tampil</button>";
 echo form_close();
 echo "</div>";
 
-if($this->input->post('bulan'))? die; :'';
+if(! $this->input->post('bulan')){ die; }
 ?>
         <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
         <?php echo"<hr>

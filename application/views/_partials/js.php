@@ -586,7 +586,8 @@ $(document).ready(function() {
             console.log(data);
             if(data.success == true){
                 alert('Data berhasil diposting !');
-                    location.reload();
+                    //location.reload();
+                    window.location.replace('<?= base_url('admin/admin_absen_manual_controller/view/').$this->uri->segment('4').'/'.$this->uri->segment('5') ?>');
             }else{
                     countTR();
                     btnPosting();
