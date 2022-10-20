@@ -546,7 +546,7 @@ $(document).ready(function() {
         this.html('<p><input type="checkbox" name="pernyataan" value="ya"><label for="pernyataan">  Data diatas sudah benar.</label><br></p>');
     };
 
-    $(document).ready(function() {
+    //$(document).ready(function() { });
         $(".add_form").click(function() {
             var tr_rand = 'tr-'+Math.floor(Math.random() * 500)+Math.floor(Math.random() * 200);
             var rowCount = $('#form-sementara>tbody>tr').length;
@@ -580,9 +580,9 @@ $(document).ready(function() {
                 url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->uri->segment('3'); ?>',
                 data: $('#form-multiple').serialize(),
                 dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded',
-                cache: false,
-                encode: true,
+                //contentType: 'application/x-www-form-urlencoded',
+                //cache: false,
+                //encode: true,
                 //success: 'success'
             }).done(function (data) {
             console.log(data);
@@ -602,7 +602,7 @@ $(document).ready(function() {
             //console.log('#checkbox-done click');
             btnPosting();
         });
-    });
+   
 
     var removeThis = function(id) {
             console.log(id);
