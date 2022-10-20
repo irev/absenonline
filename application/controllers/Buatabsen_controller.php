@@ -203,11 +203,12 @@ class Buatabsen_controller extends CI_Controller{
     }
 
     function RequestItemForm($idx=null){
-        echo $idx[0];
-        die;
-        if($idx == null){
+        //echo $idx[0];
+        //die;
+        if($idx[0] == null){
            redirect('/buatabsen_controller');
         }
+        $id_paren = $idx[0];
         $id = $this->session->userdata('username');
         $data['daftar_user'] = $this->Absen_model->getDaftarUser($id);
         $data['adminOPD'] = $this->Absen_model->getAdminOPD();
@@ -223,7 +224,7 @@ class Buatabsen_controller extends CI_Controller{
         //var_dump( $this->session->userdata());
         $admin_id = $this->session->userdata('id_instansi');
         //$idx = $this->input->post('idx');
-        $data_count = $this->Buatkehadiran_model->getRequestrow($admin_id,$idx)->num_rows();
+        $data_count = $this->Buatkehadiran_model->getRequestrow($admin_id,$id_paren)->num_rows();
         $data['alluser'] = $jumlah_user;
 
         // view file
