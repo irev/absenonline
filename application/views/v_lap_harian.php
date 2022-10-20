@@ -46,7 +46,7 @@
                                                     </h6>
                                                 </td>
                                                 <td><a href="<?=base_url('laporan_harian_controller').'/view/'. $data['username'].'/'.$data['id_user'] ?>"
-                                                        class="btn btn-primary"><i class="feather icon-eye"></i>
+                                                        class="btn btn-primary" target="_blank"><i class="feather icon-eye"></i>
                                                         Rincian</a></td>
                                             </tr>
                                             <?php endforeach ?>
