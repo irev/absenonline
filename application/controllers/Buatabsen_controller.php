@@ -203,6 +203,7 @@ class Buatabsen_controller extends CI_Controller{
     }
 
     function RequestItemForm($idx=null){
+        var_dump($idx);
         //echo $idx[0];
         //die;
         if($idx[0] == null){
