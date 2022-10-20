@@ -202,8 +202,8 @@ class Buatabsen_controller extends CI_Controller{
         echo "RequestList";
     }
 
-    function RequestItemForm(){
-        if(! $this->input->post('idx')){
+    function RequestItemForm($idx=null){
+        if($idx == null){
            redirect('/buatabsen_controller');
         }
         $id = $this->session->userdata('username');
@@ -220,7 +220,7 @@ class Buatabsen_controller extends CI_Controller{
         }
         //var_dump( $this->session->userdata());
         $admin_id = $this->session->userdata('id_instansi');
-        $idx = $this->input->post('idx');
+        //$idx = $this->input->post('idx');
         $data_count = $this->Buatkehadiran_model->getRequestrow($admin_id,$idx)->num_rows();
         $data['alluser'] = $jumlah_user;
 
