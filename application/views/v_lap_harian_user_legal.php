@@ -402,7 +402,7 @@ if(! $this->input->post('bulan')){ die; }
                                 Mengetahui<br>
                                 Atasan Langsung<br>
                                 <br><br><br><br><br>
-                                <u><span class="nama-atasan">--------------------</span></u>
+                                <u><span class="nama-atasan"><?php  echp ($nama_atasan != '')?  $nama_atasan : '--------------------' ?></span></u>
                             </td>
                             <td width="20%"></td>
                             <td width="30%" class="text-tengah">
