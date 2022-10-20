@@ -574,11 +574,10 @@ $(document).ready(function() {
         });
         
         $("form#form-multiple").submit(function (event) { 
-            event.preventDefault();
             $('#posting').html('Prosess');
             $.ajax({
                 type: "POST",
-                url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->post("idx"); ?>',
+                url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->get("idx"); ?>',
                 data: $('#form-multiple').serialize(),
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded',
