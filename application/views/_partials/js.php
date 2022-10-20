@@ -629,7 +629,7 @@ $(document).ready(function() {
 
     var btnPosting = function(params) {
         if($('#checkbox-done').prop("checked")){
-            $('#button-postinng').html('<button type="submit" id="posting" class="btn btn-sm btn-primary" >Posting Absen</button>');
+            $('#button-postinng').html('<button type="button" id="posting" class="btn btn-sm btn-primary" >Posting Absen</button>');
         }else{
             $('#button-postinng').html('');
         }    
