@@ -214,7 +214,7 @@ $tgl_akhir = ($this->input->post('bulan') != null)? date( 't', strtotime($angkaT
 echo "<center class='no-print'><div class='tab-content'>";
 echo "<h5>LAPORAN HARIAN</h5>";
 $nowYear = date('Y');
-echo form_open(base_url('laporan_harian_controller/view/'.$user.'/'.$idp), 'target="_blank"', 'hidden');
+echo form_open(base_url('laporan_harian_controller/view/'.$user.'/'.$idp), 'target="_blank-x"', 'hidden');
 echo "Laporan Harian : <select name='tahun'>";
 echo "<option value=" . date('Y') . ">" . date('Y') . "</option>";
 for ($y = 2020; $y <= $nowYear; $y++) {
