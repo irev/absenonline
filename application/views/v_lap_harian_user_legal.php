@@ -225,6 +225,7 @@ echo "<select name='bulan'>";
 
 if($this->input->post('bulan')){
     $y = $this->input->post('bulan');
+    echo "<option value=" . $y . ">" . bulan($y) . "</option>";
 }else{
     echo "<option value=" . date('m') . ">" . date('F') . "</option>";
 }
@@ -270,8 +271,7 @@ for ($y = 1; $y <= 12; $y++) {
             $bln = date('M');
             break;
     }
-    echo "<option value=" . $y . ">" . $bln . "</option>";
-    
+    echo "<option value=" . $y . ">" . $bln . "</option>";  
 }
 echo "</select> ";
 $nowYear = date('Y');
