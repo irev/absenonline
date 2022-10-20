@@ -69,7 +69,7 @@
                                                     echo '<td>'.$val['keterangan']. '</td>';
                                                     echo '<td> <a class="btn btn-primary" target="_blank" href="'.base_url().'buatabsen_controller/fileblob/'.$val['id'].'">file</a></td>';
                                                     //echo '<td><form method="post" action="'.base_url().'buatabsen_controller/RequestItemForm"><button type="submit" class="btn btn-sm btn-warning" name="idx" value="'.$val['id']. '"/>Daftar Pegawai</button></form></td>';
-                                                    echo '<td><form method="GET" action="'.base_url('buatabsen_controller/RequestItemForm').'"><button type="submit" class="btn btn-sm btn-warning" name="idx" value="'.$val['id']. '"/>Daftar Pegawai</button></form></td>';
+                                                    echo '<td><a href="'.base_url('buatabsen_controller/RequestItemForm').'" class="btn btn-sm btn-warning" name="idx" value="'.$val['id']. '"/>Daftar Pegawai</a></td>';
                                                     echo '</tr>';
                                                 }
                                                 ?>
