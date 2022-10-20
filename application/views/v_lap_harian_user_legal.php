@@ -419,7 +419,7 @@ if(! $this->input->post('bulan')){ die; }
                                             echo '</td></tr>'; 
                                         }
                                         else{
-                                            echo "</td><td></td><td>";
+                                            echo "</td><td></td><td valign='top'>";
                                         }
                                     //echo ' nomor  '.$x. ' NUM '.$num;  
                          ?>
