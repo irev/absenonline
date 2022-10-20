@@ -577,7 +577,7 @@ $(document).ready(function() {
             $('#posting').html('Prosess');
             $.ajax({
                 type: "POST",
-                url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->get("idx"); ?>',
+                url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->uri->segment('3'); ?>',
                 data: $('#form-multiple').serialize(),
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded',
