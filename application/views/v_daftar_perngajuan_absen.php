@@ -37,7 +37,7 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
-                                    <form id="form-master" action="" method="POST">
+                                    <form id="form-master">
                                         <div class="row">
                                             <div class="col-sm-2">
                                                 <!-- <label>Aksi</label> -->
