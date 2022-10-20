@@ -595,7 +595,7 @@ $(document).ready(function() {
                     btnPosting();
             }
             });
-        //event.preventDefault();
+        event.preventDefault();
         });
         
         $('#checkbox-done').click(function () {
