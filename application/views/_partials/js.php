@@ -663,7 +663,7 @@ $(document).ready(function() {
                     btnPosting();
             }
             });
-        event.preventDefault();
+       // event.preventDefault();
     });
     
     var checkboxAll = function(params) {
