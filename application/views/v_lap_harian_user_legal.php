@@ -294,7 +294,7 @@ if(! $this->input->post('bulan')){ die; }
         <?php echo"<hr>
 </center>";
 echo 'LAPORAN '. count($laporan);
-if(count($laporan) = 0){
+if(count($laporan) == 0){
     echo '<center>Tidak ditemukan data pada bulan '.bulan($this->input->post('bulan')).' </center>';
 die;
 }
