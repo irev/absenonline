@@ -222,9 +222,11 @@ for ($y = 2020; $y <= $nowYear; $y++) {
 }
 echo "</select> ";
 echo "<select name='bulan'>";
-echo "<option value=" . date('m') . ">" . date('F') . "</option>";
+
 if($this->input->post('bulan')){
     $y = $this->input->post('bulan');
+}else{
+    echo "<option value=" . date('m') . ">" . date('F') . "</option>";
 }
 for ($y = 1; $y <= 12; $y++) {
     switch ($y) {
