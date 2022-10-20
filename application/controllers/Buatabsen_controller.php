@@ -16,7 +16,7 @@ class Buatabsen_controller extends CI_Controller{
         if($param === 'PengajuanCreate'){
             $this->PengajuanCreate();
         }elseif($param === 'RequestForm'){
-            $this->RequestForm();
+            $this->RequestForm($paramTwo);
         }elseif($param === 'RequestCreate'){
             $this->RequestCreate();
         }elseif($param === 'RequestList'){
