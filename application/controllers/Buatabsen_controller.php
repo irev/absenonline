@@ -205,7 +205,7 @@ class Buatabsen_controller extends CI_Controller{
     function RequestItemForm($id=null){
         var_dump($id);
         $idx = $id[0];
-        if($idx[0] == null){
+        if($idx == null){
            redirect('/buatabsen_controller');
         }
         $id = $this->session->userdata('username');
