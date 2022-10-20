@@ -309,7 +309,7 @@ if(! $this->input->post('bulan')){ die; }
                 <?php if($num % 2 == 0){
                          echo "</td class='atas'></td>";
                         }else{
-                        echo "<tr class='atas'><td style='width: 50%;'>"; 
+                        echo "<tr class='atas'><td style='width: 50%;' valign='top'>"; 
                         }
                 ?>
                 <div class="page-laporan" hari="<?= $hari ?>">
