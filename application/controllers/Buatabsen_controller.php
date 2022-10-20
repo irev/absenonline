@@ -16,13 +16,13 @@ class Buatabsen_controller extends CI_Controller{
         if($param === 'PengajuanCreate'){
             $this->PengajuanCreate();
         }elseif($param === 'RequestForm'){
-            $this->RequestForm($paramTwo);
+            $this->RequestForm();
         }elseif($param === 'RequestCreate'){
             $this->RequestCreate();
         }elseif($param === 'RequestList'){
             $this->RequestList();
         }elseif($param === 'RequestItemForm'){
-            $this->RequestItemForm();
+            $this->RequestItemForm($paramTwo);
         }elseif($param === 'fileblob'){
             $this->fileblob();
         }
