@@ -1,10 +1,13 @@
 #! /bin/sh
 echo "Update dari https://github.com/irev/absenonline"
 read -r -p "Lanjutkan update script absensionline ? [y/n]" lanjut 
-if ["$lanjut"= 'y']
-then
+if ["$lanjut"= 'y']; then
+
 echo " Ok mulai update "
 rm -r /var/www/absenonline
 git clone https://github.com/irev/absenonline.git 
-cp -rf /var/www/absenonline/* /var/www/html
+cp -rf /var/www/absenonline/* /var/www/html/
+
+echo "update selesai"
+
 fi
