@@ -83,7 +83,7 @@
                                         <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
                                     </form>
                                     <h4>Daftar Pengajuan <span id="jumlah-form"></span></h4>
-                                    <form id="form-multiple" class="section-to-print" enctype="multipart/form-data" method="post">
+                                    <form id="form-multiple" class="section-to-print" enctype="multipart/form-data" method="post" action="<?= base_url('buatabsen_controller/PengajuanCreate/').$this->uri->segment('3'); ?>">
                                         <table class="table form-sementara" id="form-sementara">
                                             <thead>
                                                 <tr>
