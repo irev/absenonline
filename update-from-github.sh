@@ -1,7 +1,7 @@
 #! /bin/sh
 echo "Update dari https://github.com/irev/absenonline"
-read -r -p "Lanjutkan update script absensionline ? [y/n]" lanjut 
-if [ "$lanjut" = 'y']
+read -r -p "Lanjutkan update script absensionline ? [y/n] " lanjut 
+if ["$lanjut"= 'y']
 then
 echo " Ok mulai update "
 rm -r /var/www/absenonline
