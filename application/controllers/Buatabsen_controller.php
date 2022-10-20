@@ -7,8 +7,8 @@ class Buatabsen_controller extends CI_Controller{
         }
         $this->load->model('Absen_model');
         $this->load->model('Buatkehadiran_model');
-        header("Access-Control-Allow-Origin: *");
-        header("Access-Control-Allow-Headers: *");
+        //header("Access-Control-Allow-Origin: *");
+        //header("Access-Control-Allow-Headers: *");
         header('Access-Control-Max-Age: 86400'); 
     }
 
