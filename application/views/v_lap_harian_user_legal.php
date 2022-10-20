@@ -293,7 +293,7 @@ if(! $this->input->post('bulan')){ die; }
         <button onclick="exportTableToExcel('tblData')">Export Table Data To Excel File</button>
         <?php echo"<hr>
 </center>";
-
+echo 'LAPORAN '. count($laporan);
 if(count($laporan) < 0){
     echo '<center>Tidak ditemukan data pada bulan '.bulan($this->input->post('bulan')).' </center>';
 die;
