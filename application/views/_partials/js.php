@@ -579,7 +579,7 @@ $(document).ready(function() {
                 type: "POST",
                 url: '<?= base_url(); ?>buatabsen_controller/PengajuanCreate/<?= $this->input->post("idx"); ?>',
                 data: $('#form-multiple').serialize(),
-                dataType: 'json',
+                dataType: 'jsonp',
                 //encode: true,
                 //success: 'success'
             }).done(function (data) {
@@ -644,7 +644,7 @@ $(document).ready(function() {
                 type: "POST",
                 url: '<?= base_url(); ?>admin/admin_absen_manual_controller/AbsenManualCreate/<?= $this->input->post("idx"); ?>',
                 data: $('#form-multiple').serialize(),
-                dataType: 'jsonp',
+                dataType: 'json',
                 //encode: true,
                 //success: 'success'
             }).done(function (data) {
