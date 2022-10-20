@@ -105,11 +105,13 @@ class Buatabsen_controller extends CI_Controller{
             //var_dump($data);
             $sql = $this->Buatkehadiran_model->save_batch('absen_request',$data);
             
-            header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
+            //header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
 
             if($sql){
+                header("Content-Type: application/json");
                 echo  json_encode(['success'=>true]);
             }else{
+                header("Content-Type: application/json");
                 echo  json_encode(['success'=>false]);
             }
     }
@@ -130,7 +132,7 @@ class Buatabsen_controller extends CI_Controller{
         $data['alluser'] = $jumlah_user;
 
         //setcookie('ci_session', '1',0, '/; samesite=strict');
-        header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
+        //header('Set-Cookie: ci_session='.$_COOKIE["ci_session"].'; SameSite=Lax');
 
         $this->load->view('_partials/head');
         $this->load->view('_partials/sidebar', $data);
@@ -150,8 +152,8 @@ class Buatabsen_controller extends CI_Controller{
             $config['upload_path']          = $_SERVER['DOCUMENT_ROOT'].'/file_absen/';
             $config['allowed_types']        = 'pdf';
             $config['max_size']             = 1024;
-            //$config['max_width']            = 1024;
-            //$config['max_height']           = 768;
+            //$config['max_width']          = 1024;
+            //$config['max_height']         = 768;
             $this->load->library('upload', $config);
             if ( ! $this->upload->do_upload('file'))
             {

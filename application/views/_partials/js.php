@@ -573,7 +573,7 @@ $(document).ready(function() {
             btnPosting();
         });
         
-        $("form#form-multiple").submit(function (event) {
+        $("form#form-multiple").submit(function (event) { 
             $('#posting').html('Prosess');
             $.ajax({
                 type: "POST",
