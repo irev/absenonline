@@ -430,6 +430,7 @@ die;
                     $nama_atasan = "---------------"; 
                     foreach ($laporan as $data):
                         $nama_atasan = $data["nama_atasan"];
+                        $nip = $data["nip"];
                         $tgl_data = $data["tgl"];
                         if($tgl_data == $tgl):
                             if ($data["status"] == 1) {
@@ -488,7 +489,8 @@ die;
                                 Mengetahui<br>
                                 Atasan Langsung<br>
                                 <br><br><br><br><br>
-                                <u><span class="nama-atasan"><?php  echo ($nama_atasan != '')?  $nama_atasan : '--------------------' ?></span></u>
+                                <u><span class="nama-atasan"><?php  echo ($nama_atasan != '')?  $nama_atasan : '--------------------' ?></span></u><br>
+                                NIP. <?php echo ($nip != '')? $nip : '-'?>
                             </td>
                             <td width="20%"></td>
                             <td width="30%" class="text-tengah">
