@@ -28,12 +28,14 @@ ctl + DEL
 ```
 
 ## 📦 Informasi Fitur 
-  jika admin.bkpsdm
-  - Bisa ambil semua rekap OPD ✔
-  - Bisa ambil semua rekap Laporan Harian ✔
-    - Pilih/select laporan harian berdasarkan [bulan]
+
+### Admin BKPSDM
+  🦸 admin.bkpsdm
+  - [x] Bisa ambil semua rekap OPD ✔
+  - [x] Bisa ambil semua rekap Laporan Harian ✔
+    - [x] Pilih/select laporan harian berdasarkan [bulan]
     
-  - Pengajuan Manual 💯
+ ### Pengajuan Absen Manual 💯
     - [x] Bisa Upload data absen manual ✔
     - [x] [OPD] upload file permohonan ✔
     - [x] [OPD] select/add user absen manual ✔
@@ -42,11 +44,12 @@ ctl + DEL
     - [x] [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
 
 
-## 💡 Fitur rekap Laporan Harian
+### 💡 Fitur rekap Laporan Harian
 
 ## IDLK (Izin Dinas Luar Jam Kerja)
 Dinas luar yang dilakukan guna membuka kesempatan pengambilan [Absen Pulang] disaat melakukan pekerjaan pada dinas lain.
-### Kondisi IDLK :
+
+#### Kondisi IDLK :
 - Pegawai telah melakukan [Absen Masuk] 
 - Disaat (mendekati) jam pulang atasan memberi tugas (mendadak) ke instansi lain.
 - Disaat jam pulang pegawai tidak memungkinkan melakukan pengambilan absen di kantor (alasan jarak tempuh).
