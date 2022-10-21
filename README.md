@@ -7,9 +7,9 @@ composer update
 
 # Panel Admin Absen Online Pasaman Barat
 # Dibagi 3 server  
-- http://mobileabsensi1.pasamanbaratkab.go.id
-- http://mobileabsensi3.pasamanbaratkab.go.id
-- http://mobileabsensi4.pasamanbaratkab.go.id
+  - 🌐 http://mobileabsensi1.pasamanbaratkab.go.id
+  - 🌐 http://mobileabsensi3.pasamanbaratkab.go.id
+  - 🌐 http://mobileabsensi4.pasamanbaratkab.go.id
 
 ```
 protokol http
@@ -42,13 +42,11 @@ ctl + DEL
     - [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
 
 
+## 💡 Fitur rekap Laporan Harian
 
-
-
-## Fitur rekap Laporan Harian
-show changing [Laporan Harian Select Bulan](https://github.com/KominfoPasbar/AdminAbsenOnline/commit/287e8eff4a41028e329767cf789b773c04ec94ce).
 
 ### Keterangan
-- ✔ Selesai
-- ⌛ Proses Pengerjaan
+✔ Selesai
+
+⌛ Proses Pengerjaan
 
