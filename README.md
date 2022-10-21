@@ -35,11 +35,11 @@ ctl + DEL
     
   - Pengajuan Manual 💯
     - [x] Bisa Upload data absen manual ✔
-    - [ ] [OPD] upload file permohonan ✔
-    - [ ] [OPD] select/add user absen manual ✔
-    - [ ] [bkpsdm] cek file permohonan ✔
-    - [ ] [bkpsdm] approval permohonan absen manual ✔
-    - [ ] [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
+    - [x] [OPD] upload file permohonan ✔
+    - [x] [OPD] select/add user absen manual ✔
+    - [x] [bkpsdm] cek file permohonan ✔
+    - [x] [bkpsdm] approval permohonan absen manual ✔
+    - [x] [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
 
 
 ## 💡 Fitur rekap Laporan Harian
