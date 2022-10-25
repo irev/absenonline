@@ -36,12 +36,13 @@ ctl + DEL
     - [x] Pilih/select laporan harian berdasarkan [bulan]
     
  ### Pengajuan Absen Manual 💯
-    - [x] Bisa Upload data absen manual ✔
-    - [x] [OPD] upload file permohonan ✔
-    - [x] [OPD] select/add user absen manual ✔
-    - [x] [bkpsdm] cek file permohonan ✔
-    - [x] [bkpsdm] approval permohonan absen manual ✔
-    - [x] [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
+
+  - [x] Bisa Upload data absen manual ✔
+  - [x] [OPD] upload file permohonan ✔
+  - [x] [OPD] select/add user absen manual ✔
+  - [x] [bkpsdm] cek file permohonan ✔
+  - [x] [bkpsdm] approval permohonan absen manual ✔
+  - [x] [system] save absen dari daftar user yg di request (absen_request) manual (insert ke tabel absens5 ) ✔
 
 
 ### 💡 Fitur rekap Laporan Harian
