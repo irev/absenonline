@@ -22,10 +22,7 @@ ctl + DEL
  - 07:30 ~ 1630 jum'at total 7.5 jam
  - set toleransi 07:40 toleransi  10 menit
 
-
-```
-📓 Hasil diskusi dengan BKPSDM
-```
+# 📓 Hasil diskusi dengan BKPSDM
 
 ## 📦 Informasi Fitur 
 
