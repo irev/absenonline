@@ -51,10 +51,10 @@ ctl + DEL
 Dinas luar yang dilakukan guna membuka kesempatan pengambilan [Absen Pulang] disaat melakukan pekerjaan pada dinas lain.
 
 #### Kondisi IDLK :
-- Pegawai telah melakukan [Absen Masuk] 
-- Disaat (mendekati) jam pulang atasan memberi tugas (mendadak) ke instansi lain.
-- Disaat jam pulang pegawai tidak memungkinkan melakukan pengambilan absen di kantor (alasan jarak tempuh).
-- Dengan fitur IDLK memungkinkan pegawai mengambil absen via paket data.
+- [] Pegawai telah melakukan [Absen Masuk] 
+- [] Disaat (mendekati) jam pulang atasan memberi tugas (mendadak) ke instansi lain.
+- [] Disaat jam pulang pegawai tidak memungkinkan melakukan pengambilan absen di kantor (alasan jarak tempuh).
+- [] Dengan fitur IDLK memungkinkan pegawai mengambil absen via paket data.
 
 ### 
 
