@@ -69,6 +69,8 @@ class Rekap_model extends CI_model
             return 'i';
         }else if($query->row('status')==4){
             return 'S';
+        }else if($query->row('status')==6){
+            return 'C';
         }else{
             return 'TK';
         }

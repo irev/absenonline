@@ -15,7 +15,7 @@ class Dashboard_controller extends CI_Controller{
       } 
       /**
          * Hitung Absen Keterangan Status :
-         * 	1.Hadir 2.DL 3.IZIN 4.SAKIT 5.TK	
+         * 	1.Hadir 2.DL 3.IZIN 4.SAKIT 5.TK 6. CUTI
          */
     public function index(){
         // Ambil semua data user

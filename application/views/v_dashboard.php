@@ -5,6 +5,7 @@
                 <div class="main-body">
                     <div class="page-wrapper">
                         <div class="row">
+
                             <div class="col-md-12 col-xl-12">
                                 <div class="card daily-sales">
                                     <div class="card-block">
@@ -64,6 +65,11 @@
                                     </div>
                                 </div>
                             </div>
+
+                            <div>
+                                <p>sds</p>
+                            </div>
+
                             <div class="col-xl-12 col-md-12 m-b-30">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item">

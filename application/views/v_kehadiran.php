@@ -13,8 +13,18 @@
                                     </li>
                                 </ul>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade active show" id="profile" role="tabpanel"
-                                        aria-labelledby="profile-tab">
+                                <form action="" method="post">
+                                    <div class="input-group">
+                                    <label>Tanggal : </label>
+                                            <input type="date" name="tgl" class="form-control pull-right" placeholder="dd-mm-yyyy" max="2050-12-30" value="<?= $this->input->post('tgl') ?>">
+                                            <button type="submit" class="btn btn-primary">Tampil</button>
+                                    </div>
+                                </form> 
+                                <hr>
+                                <?php 
+                                //echo $this->db->last_query();
+                                ?>   
+                                    <div class="tab-pane fade active show" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="table-responsive">
                                             <table class="table table-hover" id="example">
                                                 <thead>
@@ -30,7 +40,26 @@
                                                 </thead>
                                                 <tbody>
                                                     <?php foreach ($kehadiran as $data) : ?>
-                                                    <tr>
+                                                    <?php if($data['x_approv']==3){
+                                                        echo '<tr style="background: #ffc1c1;">';
+                                                    }else if($data['x_approv']==1){
+                                                        echo '<tr style="background: #fffccc;">';
+                                                    }else if($data['x_approv']==2){
+                                                        if($data['x_status']==2){
+                                                            echo '<tr style="background: #ccd9ff70;">';
+                                                        }else if($data['x_status']==3){
+                                                            echo '<tr style="background: #c1cbff;">';
+                                                        }else if($data['x_status']==4){
+                                                            echo '<tr style="background: ##ffeaea;">';
+                                                        }else if($data['x_status']==5){
+                                                                echo '<tr style="background: #c1cbff;">';
+                                                        }else{
+                                                            echo '<tr style="background: #c9ffc170;">';
+                                                        }
+                                                    }else{
+                                                        echo '<tr>';
+                                                    } ?>
+                                                    
                                                         <td>
                                                             <h6 class="m-0"><img class="rounded-circle  m-r-10"
                                                                     style="width:40px;"
@@ -49,25 +78,47 @@
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0">
-                                                                <?php echo date('G:i:s', strtotime($data['timestamp_masuk'])); ?>
+                                                                <?php 
+                                                                if($data['x_status']==2){
+                                                                    echo date('G:i:s', strtotime($data['x_masuk']));
+                                                                }else{ 
+                                                                    echo date('G:i:s', strtotime($data['timestamp_masuk'])); 
+                                                                }
+                                                                ?>
                                                             </h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0">
-                                                                <?php if($data['timestamp_pulang']){
-                                                            echo date('G:i:s', strtotime($data['timestamp_pulang'])); 
-                                                            }else{  
-                                                                echo "-"; 
-                                                            
-                                                            } ?></h6>
+                                                                <?php 
+                                                                if($data['x_status']==2){
+                                                                    echo date('G:i:s', strtotime($data['x_pulang']));
+                                                                }else{    
+                                                                    if($data['timestamp_pulang']){
+                                                                        echo date('G:i:s', strtotime($data['timestamp_pulang'])); 
+                                                                    }else{  
+                                                                        echo "-"; 
+                                                                    }
+                                                                } 
+                                                                ?>
+                                                            </h6>
                                                         </td>
                                                         <td>
                                                             <h6 class="m-0">
-
                                                                 <?php 
+                                                                //var_dump($this->db->query("CALL Get_CekJadwal('2022-09-20','OUT')"));
                                                                 if($data['timestamp_pulang'] != null){
-                                                                    $dateTimeObject1 = date_create($data['timestamp_masuk']); 
-                                                                    $dateTimeObject2 = date_create($data['timestamp_pulang']);  
+                                                                    if($data['x_status']==2){
+                                                                        $dateTimeObject1 = date_create($data['x_masuk']);
+                                                                    }else{
+                                                                        $dateTimeObject1 = date_create($data['timestamp_masuk']);
+                                                                    }
+                                                                    
+                                                                    if($data['x_status']==2){
+                                                                        $dateTimeObject2 = date_create($data['x_pulang']); //date_create('16:00');
+                                                                    }else{
+                                                                        $dateTimeObject2 = date_create($data['timestamp_pulang']);
+                                                                    }
+                                                                      
                                                                     $difference = date_diff($dateTimeObject1, $dateTimeObject2); 
                                                                      
                                                                     echo $difference->h;
@@ -77,6 +128,8 @@
                                                                     //$minutes += $difference->i;
                                                                     //echo("The difference in minutes is:");
                                                                     echo $difference->i .' menit';
+                                                                }elseif($data['status'] !=1 ){
+                                                                    echo  $data['x_durasi']. ' Hari ' ;  
                                                                 }else{
                                                                     $dateTimeObject1 = date_create($data['timestamp_masuk']); 
                                                                     $dateTimeObject2 = date_create($data['timestamp_masuk']);  
@@ -109,32 +162,30 @@
                                                             ?>
                                                             </h6>
                                                         </td>
-                                                        <td>
-                                                            <?php if($data['status'] == 1){ ?>
-                                                            <h6 class="m-0 text-c-green">Hadir</h6>
-                                                            <?php }else if($data['status'] == 2){ ?>
-                                                            <h6 class="m-0 text-c-blue">Dinas Luar</h6>
-                                                            <?php }else if($data['status'] == 3){ ?>
-                                                            <h6 class="m-0 text-c-yellow">Ijin</h6>
-                                                            <?php }else if($data['status'] == 4){ ?>
-                                                            <h6 class="m-0 text-c-red">Sakit</h6>
-                                                            <?php }else{ ?>
-                                                            <h6 class="m-0 text-c-black">Absen</h6>
+                                                        <td class="text-left">
+                                                            <?php 
+                                                             if($data['x_approv']==1){
+                                                             echo  '<h6 class="m-0 text-c-yellow">Pengajuan</h6>';
+                                                             }else if($data['x_approv']==3) {
+                                                             echo  '<h6 class="m-0 text-c-red">Ditolak</h6>';
+                                                            }
+                                                            ?>
+                                                            <?php if($data['x_status'] == 1){ ?>
+                                                            <h6 class="m-0 text-c-green"><i class="fas fa-circle text-c-green f-10"></i> Hadir</h6>
+                                                            <?php }else if($data['x_status'] == 2){ ?>
+                                                            <h6 class="m-0 text-c-blue"><i class="fas fa-circle text-c-blue f-10"></i> Dinas Luar</h6>
+                                                            <?php }else if($data['x_status'] == 3){ ?>                                                            
+                                                            <h6 class="m-0 text-c-yellow"><i class="fas fa-circle text-c-yellow f-10"></i> Ijin</h6>
+                                                            <?php }else if($data['x_status'] == 4){ ?>                                                            
+                                                            <h6 class="m-0 text-c-red"><i class="fas fa-circle text-c-red f-10"></i> Sakit</h6>
+                                                            <?php }else{ ?>                                                            
+                                                            <h6 class="m-0 text-c-black"><i class="fas fa-circle text-c-black f-10"></i> Absen</h6>
                                                             <?php } ?>
-
                                                         </td>
-                                                        <td class="text-right">
-                                                            <?php if($data['status'] == 1){ ?>
-                                                            <i class="fas fa-circle text-c-green f-10"></i>
-                                                            <?php }else if($data['status'] == 2){ ?>
-                                                            <i class="fas fa-circle text-c-blue f-10"></i>
-                                                            <?php }else if($data['status'] == 3){ ?>
-                                                            <i class="fas fa-circle text-c-yellow f-10"></i>
-                                                            <?php }else if($data['status'] == 4){ ?>
-                                                            <i class="fas fa-circle text-c-red f-10"></i>
-                                                            <?php }else{ ?>
-                                                            <i class="fas fa-circle text-c-black f-10"></i>
-                                                            <?php } ?>
+                                                        <td class="text-left">
+                                                            <?php  
+                                                            echo $data['x_ket'];
+                                                            ?>
                                                         </td>
                                                     </tr>
 

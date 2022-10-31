@@ -52,6 +52,9 @@
 </script>
 
 <script>
+const domTable = "<'row'<'col-sm-4' B><'col-sm-4' l><'col-sm-4' f>>" +
+                 "<'row'<'col-sm-12'tr>>" +
+                 "<'row'<'col-sm-5'i><'col-sm-7'p>>";    
 var options = {
     now: "12:35", //hh:mm 24 hour format only, defaults to current time 
     twentyFour: false, //Display 24 hour format, defaults to false
@@ -74,7 +77,14 @@ $('.timepicker').wickedpicker(options);
 $(document).ready(function() {
     $('.data-dashboard').DataTable({
         paging: false,
-        dom: 'Bfrtip',
+        dom: domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+            }, 
         <?php if ($this->session->userdata('id_instansi') == '3050' || $this->session->userdata('id_instansi') == '3048') {
                 echo "buttons: ['copy', 'csv', 'excel', 'pdf', 'print']";
             } else {
@@ -88,7 +98,14 @@ $(document).ready(function() {
 $(document).ready(function() {
     $('.data-kehadiran').DataTable({
         paging: false,
-        dom: 'Bfrtip',
+        dom: domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+            }, 
         <?php if ($this->session->userdata('id_instansi') == '3050' || $this->session->userdata('id_instansi') == '3048') {
                 echo "buttons: ['copy', 'csv', 'excel', 'pdf', 'print']";
             } else {
@@ -108,7 +125,14 @@ $(document).ready(function() {
     $(document).prop('title',
         'Daftar User Absen Online <?php echo $this->session->userdata('nama_instansi'); ?>');
     $('.data-user').DataTable({
-        dom: 'Bfrtip',
+        dom: domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+            }, 
         <?php if ($this->session->userdata('id_instansi') == '3050' || $this->session->userdata('id_instansi') == '3048') {
                 echo "'columnDefs': [
                                 { 'type': 'string', 'targets': [0,1,':visible']}
@@ -220,26 +244,34 @@ function parseDateValue(rawDate) {
 $(document).ready(function() {
     //konfigurasi DataTable pada tabel dengan id example dan menambahkan  div class dateseacrhbox dengan dom untuk meletakkan inputan daterangepicker
     var $dTable = $('#example').DataTable({
-        "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchbox'>>>" + "Bfrtip",
-
-        "lengthChange": false,
+        "dom": domTable,
+        "lengthChange": true,
+        "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+        },
         "order": [
             [1, "asc"]
         ],
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        "iDisplayLength": -1
 
         <?php if ($this->session->userdata('id_instansi') == '3050' || $this->session->userdata('id_instansi') == '3048') {
-                echo "buttons: ['copy', 'csv', 'excel', 'pdf', 'print']";
+                echo ",buttons: ['copy', 'csv', 'excel', 'pdf', 'print']";
             } else {
-                echo "buttons: ['pdf', 'print']";
+                echo ",buttons: ['pdf', 'print','excel']";
             } ?>
 
     });
 
     //menambahkan daterangepicker di dalam datatables
+    /*
     $("div.datesearchbox").html(
         '<div class="input-group"> <div class="input-group-addon"> <i class="glyphicon glyphicon-calendar"></i> </div><input type="text" class="form-control pull-right" id="datesearch" placeholder="Silahkan pilih tanggal"> </div>'
     );
-
+    */
     document.getElementsByClassName("datesearchbox")[0].style.textAlign = "right";
 
     //konfigurasi daterangepicker pada input dengan id datesearch
@@ -270,6 +302,7 @@ $(document).ready(function() {
         $dTable.draw();
     });
 });
+
 </script>
 
 <script>
@@ -279,7 +312,6 @@ $(function() {
     }, function(start, end, label) {
         console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end
             .format('YYYY-MM-DD'));
-
     });
 });
 </script>
@@ -316,13 +348,18 @@ function parseDateValue(rawDate) {
 $(document).ready(function() {
     //konfigurasi DataTable pada tabel dengan id example dan menambahkan  div class dateseacrhbox dengan dom untuk meletakkan inputan daterangepicker
     var $dTable = $('#ijin').DataTable({
-        "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchboxijin'>>>" + "Bfrtip",
-
-        "lengthChange": false,
+        "dom": domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+            }, 
+        "lengthChange": true,
         "order": [
             [1, "asc"]
         ],
-
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
 
     });
@@ -392,15 +429,19 @@ function parseDateValue(rawDate) {
 $(document).ready(function() {
     //konfigurasi DataTable pada tabel dengan id example dan menambahkan  div class dateseacrhbox dengan dom untuk meletakkan inputan daterangepicker
     var $dTable = $('#kehadiran').DataTable({
-        "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchboxkehadiran'>>>" + "Bfrtip",
-
-        "lengthChange": false,
+        "dom": domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        language: {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+            },    
+        "lengthChange": true,
         "order": [
             [1, "asc"]
         ],
-
         buttons: ['copy', 'csv', 'excel', 'pdf', 'print']
-
     });
 
     //menambahkan daterangepicker di dalam datatables
@@ -496,8 +537,6 @@ function laporan_user(url, id, message) {
         url: "<?= base_url() ?>" + url,
         data: data,
         success: function(response) {
-
-
         }
     });
 };
@@ -507,8 +546,11 @@ function laporan_user(url, id, message) {
 <script type="text/javascript">
 $(document).ready(function() {
     $('#empTable').DataTable({
-        "dom": "<'row'<'col-sm-4'l><'col-sm-5' <'datesearchboxkehadiran'>>>" + "Bfrtip",
-
+        "dom": domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
         'lengthChange': false,
         'order': [
             [1, "asc"]
@@ -712,7 +754,16 @@ $(document).ready(function() {
 
 
 <script>
-    $('.dataTable').DataTable();
+    $('.dataTable').DataTable({
+        dom:domTable,
+        aLengthMenu: [
+                [5, 10, 50, 100, -1],
+                [5, 10, 50, 100, "All"]
+            ],
+        "language": {
+                "url": "https://cdn.datatables.net/plug-ins/1.12.1/i18n/id.json"
+        },
+    });
 </script>
 
 

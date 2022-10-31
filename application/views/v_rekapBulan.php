@@ -1,4 +1,5 @@
 <?php
+echo 'rekap';
     $idAdminInstansi = $this->input->post('instansi');
     // $nama = $this->Rekap_model->getRekap_nama($idAdminInstansi);
     // echo json_encode($nama);
@@ -204,8 +205,9 @@
                 $tanggal = cal_days_in_month(CAL_GREGORIAN, $bulan, $tahun);
                 //// TABLE HEADER
                 echo "<div class='row'>";
-                
-                /// START HEADER TABEL 
+/* ===========================================================                
+* START HEADER TABEL 
+=============================================================*/                
                 echo '<table id="headerTable" class="table tabel-rekap table-bordered"><thead>' . "\n";
                 echo '<th width="3px" rowspan="">No.</th>';
                 echo '<th width="10%" min-width="20%" id="kolom-nama" rowspan="2">NAMA</th>';
@@ -233,8 +235,9 @@
                 echo '<th>TK</th>' . "\n";
                 echo '</tr>';
                 echo '</thead><tbody>';
-                //// END HEADER TABEL
-                
+/* ===========================================================                
+* END HEADER TABEL
+=============================================================*/
                 //// EMPLOYEs NAME 
                 // TODO TAMPILAN TOTAL WAKTU ABSEN
                 // FIXME perbaikan total jam kerja tidak muncul
@@ -265,7 +268,9 @@
                         if(strtotime($RekapHariTerakhir) > strtotime($tgl) AND $whari != 'Sabtu' AND $whari != 'Minggu'){
                             $wMasuk = $this->Rekap_model->getRekap_time($idAdminInstansi, $key['id_user'], $tgl, 'in'); 
                             if ($wMasuk != 'i' AND $wMasuk != 'DL' AND $wMasuk != 'S' AND $wMasuk != 'TK' AND $wMasuk != 'CT' AND $wMasuk != 'TK') {
-                                echo substr($wMasuk,10,6);
+                                $xMasuk = $this->db->query("SELECT F_Get_CekJadwal('".$tgl."','MAX_IN') AS xMasuk")->row('xMasuk');
+                                $jMasuk = $this->db->query("SELECT F_Get_CekJadwal('".$tgl."','IN') AS jMasuk")->row('jMasuk');
+                                echo $this->durasiwaktu->Terlambat_Masuk($wMasuk,$xMasuk,$jMasuk,10);
                             }else if($wMasuk == 'i'){
                                 echo 'I';
                             }else if($wMasuk == 'DL'){
@@ -287,8 +292,12 @@
                         echo '<td class="time col-pulang text-center' . tgl_indomerah($tahun, $bulan, $x) .' '. genab_ganjil($x).'">'; 
                             if(strtotime($RekapHariTerakhir) > strtotime($tgl) AND ($whari != 'Sabtu' AND $whari != 'Minggu')){
                                 $wPulang = $this->Rekap_model->getRekap_time($idAdminInstansi, $key['id_user'], $tgl, 'out'); 
+                                $xPulang = $this->db->query("SELECT F_Get_CekJadwal('".$tgl."','MIN_OUT') AS xOUT")->row('xOUT');
+                                $jPulang = $this->db->query("SELECT F_Get_CekJadwal('".$tgl."','OUT') AS jOUT")->row('jOUT');
+                                
                                 if ($wPulang != 'i' AND $wPulang != 'DL' AND $wPulang != 'S' AND $wPulang != 'CT' AND $wPulang != 'TK') {
-                                    echo substr($wPulang,10,6);
+                                    echo substr($wPulang,10,6)."\n";
+                                    echo $this->durasiwaktu->Pulang_Cepat($wPulang,$xPulang,$jPulang,10);
                                 }else if($wPulang == 'i'){
                                     echo 'I';
                                 }else if($wPulang == 'DL'){
@@ -349,8 +358,12 @@
                             array_push($ALL_TK_BYUSER, $v[$key['id_user']]);
                         }
                     }
+                    for ($i=0; $i < $DL; $i++) { 
+                                array_push($ALLDURASIBYUSER, '07:30');
+                    }
+                    //dd($ALLDURASIBYUSER);
                     //echo json_encode($ALLDURASIBYUSER).' DL = '. $DL .'<br>';
-                    echo $this->durasiwaktu->Total_Durasi_Jam_Kerja($ALLDURASIBYUSER);
+                    echo $timeDL = $this->durasiwaktu->Total_Durasi_Jam_Kerja($ALLDURASIBYUSER);
                     echo '</td>';
                     echo '<td>';
                     $ab_sen = $this->db->query("SELECT timestamp_masuk as m, timestamp_pulang as p , DAYNAME(tgl_absen) as hari FROM `absen5` WHERE id_user='" . $key['id_user'] . "' AND status='1' AND tgl_absen LIKE '" . $tahun_bulan . "%' ")->result_array();

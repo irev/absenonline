@@ -54,9 +54,127 @@ class Durasiwaktu
             }
              echo $str.$end;
              return 'null';
-                
         }
         return 'null';
+    }
+
+    function Terlambat_Masuk($str, $end, $def,$TOLERANSImenit=0)
+    {
+        if(strtotime($str) && strtotime($end)){
+            //TODO HITUNG DURASI TERLAMBAT 
+            if ($str != '-' && $end != '-') {
+              //menghitung selisih dengan hasil detik
+                $diff    =strtotime($end) - strtotime($str);
+                //membagi detik menjadi jam
+                $jam    = floor($diff / (60 * 60));
+                //membagi sisa detik setelah dikurangi $jam menjadi menit
+                $menit    =$diff - $jam * (60 * 60);
+                //menampilkan / print hasil
+                $detik = number_format($diff,0,",",".");
+                if($diff < 0 ){
+                    if($jam <= -1 AND (floor($menit/60)+1) >= 60 ){
+                        $diffToleran = strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        $kurang = (floor($unixTolerans / (60)) <= 10 )? floor($unixTolerans / (60))*60:0;
+                        return '<b>'.date( 'H:i' ,strtotime($str)-$kurang).'</br>';
+                        //return (floor($unixTolerans / (60)) <= 10 )? floor($unixTolerans / (60)):0;
+                        //return ' OK <b style="color:blue;"> toleran1 '.floor($unixTolerans / (60)).'</b>';
+                    }else{
+                        return '<b style="color:red;">'.substr($str,10,6).'</b>';
+                        //return $jam .':'.(floor($menit/60)+1).  ' Telat <b style="color:red;">'. substr($str,10,6).'</b>' ;
+                    }    
+                }else{
+                    if((floor($menit/60)+1) <= 60 ){
+                        $diffToleran = strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        //return $jam .':'.(floor($menit/60)+1). ' OK <b style="color:blue;"> toleran2 '.floor($unixTolerans / (60)).'</b>';
+                        $kurang = (floor($unixTolerans / (60)) <= 10 )? floor($unixTolerans / (60))*60:0;
+                        return '<b>'.date( 'H:i' ,strtotime($str)-$kurang).'</br>';
+                         
+                    }
+                        $diffToleran =  strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        $kurang = (floor($unixTolerans / (60)) <= 10 )? floor($unixTolerans / (60))*60:0;
+                        return '<b>'.date( 'H:i' ,strtotime($str)-$kurang).'</br>';
+                }
+            }
+             echo $str.$end;
+             return 'null';
+        }
+        return 'null';
+    }
+
+    function Pulang_Cepat($str, $end, $def,$TOLERANSImenit=0)
+    {
+        if(strtotime($str) && strtotime($end)){
+            //TODO HITUNG DURASI TERLAMBAT 
+            if ($str != '-' && $end != '-') {
+              //menghitung selisih dengan hasil detik
+                $diff    =strtotime($end) - strtotime($str);
+                //membagi detik menjadi jam
+               echo $jam    = floor($diff / (60 * 60));
+                //membagi sisa detik setelah dikurangi $jam menjadi menit
+                $menit    =$diff - $jam * (60 * 60);
+                //menampilkan / print hasil
+                $detik = number_format($diff,0,",",".");
+                if($diff < 0 ){
+                    if($jam <= -1 AND (floor($menit/60)+1) <= 60 ){
+                        $diffToleran = strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        echo "\n". $kurang = (floor($unixTolerans / (60)) >= 10 )? floor($unixTolerans / (60))*60:0;
+                        return "\n".'<b>'.date( 'H:i' ,strtotime($str)-$kurang).'</br>';
+                        //return (floor($unixTolerans / (60)) <= 10 )? floor($unixTolerans / (60)):0;
+                        //return ' OK <b style="color:blue;"> toleran1 '.floor($unixTolerans / (60)).'</b>';
+                    }else{
+                        return '<b style="color:red;">'.substr($str,10,6).'</b>';
+                        //return $jam .':'.(floor($menit/60)+1).  ' Telat <b style="color:red;">'. substr($str,10,6).'</b>' ;
+                    }    
+                }else{
+                    if((floor($menit/60)+1) <= 60 ){
+                        $diffToleran = strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        //return $jam .':'.(floor($menit/60)+1). ' OK <b style="color:blue;"> toleran2 '.floor($unixTolerans / (60)).'</b>';
+                        echo $kurang = (floor($unixTolerans / (60)) >= 10 )? floor($unixTolerans / (60))*60:0;
+                        return '<b>'.date( 'H:i' ,strtotime($str)+$kurang).'</br>';
+                         
+                    }
+                        $diffToleran =  strtotime($str) - strtotime($def);
+                        $jamToleran = floor($diffToleran / (60 * 60));
+                        $unixTolerans = $diffToleran - $jamToleran * (60 * 60);
+                        $menitToleran = floor($unixTolerans / (60-1));
+                        echo $kurang = (floor($unixTolerans / (60)) >= 10 )? floor($unixTolerans / (60))*60:0;
+                        return '<b>'.date( 'H:i' ,strtotime($str)-$kurang).'</br>';
+                }
+            }
+             echo $str.$end;
+             return 'null';
+        }
+        return 'null';
+    }
+
+    private function UnixToTime($str,$end)
+    {
+        if ($str != '-' && $end != '-') {
+              //menghitung selisih dengan hasil detik
+                $diff    =strtotime($end) - strtotime($str);
+                //membagi detik menjadi jam
+                $jam    = floor($diff / (60 * 60));
+                //membagi sisa detik setelah dikurangi $jam menjadi menit
+                $menit    =$diff - $jam * (60 * 60);
+                //menampilkan / print hasil
+                $detik = number_format($diff,0,",",".");
+            return  $jam.':'.floor( $menit / 60 );
+            }
     }
 
     /** TODO HITUNG JUMLAH TOTAL JAM
@@ -75,7 +193,6 @@ class Durasiwaktu
             $minutes += $hour * 60;
             $minutes += $minute;
         }
-
         $hours = floor($minutes / 60);
         $minutes -= $hours * 60;
 

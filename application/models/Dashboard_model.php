@@ -10,7 +10,7 @@ class Dashboard_model extends CI_model{
     }
         /**
          * Hitung Absen Keterangan Status :
-         * 	1.Hadir 2.DL 3.IZIN 4.SAKIT 5.TK	
+         * 	1.Hadir 2.DL 3.IZIN 4.SAKIT 5.TK 6. CUTI	
          */
     public function getTotalRiwayatAbsenHariIni($status = 1){
         

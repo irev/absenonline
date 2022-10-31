@@ -18,9 +18,12 @@ class Kehadiran_controller extends CI_Controller{
     }
 
     public function index(){
+        $tgl = null;
         $id = $this->uri->segment('2');
-
-        $data['kehadiran'] = $this->Absen_model->getKehadiran($id);
+        if($this->input->post('tgl')){
+            $tgl = $this->input->post('tgl');
+        }
+        $data['kehadiran'] = $this->Absen_model->getKehadiran($id,$tgl);
         $data['adminOPD'] = $this->Absen_model->getAdminOPD();
         
         $this->load->view('_partials/head');

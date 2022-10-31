@@ -14,9 +14,38 @@ class Absen_model extends CI_model
         ]);
     }
 
-    public function getKehadiran($id_admin_instansi)
+    public function getKehadiran($id_admin_instansi, $tgl=null)
     { 
-        $sql = "SELECT * from absen5 WHERE  EXISTS (SELECT * FROM approval_ijin WHERE absen5.id_absen = approval_ijin.id_absen and approval_ijin.id_admin='$id_admin_instansi' and approval_ijin.status_approval <> '3') or absen5.id_admin_instansi = '$id_admin_instansi' and absen5.status ='1' order by tgl_absen asc";
+        if($tgl != null){
+            // $sql = "
+            // SELECT * from absen5 
+            // WHERE  
+            // absen5.id_admin_instansi = '$id_admin_instansi' 
+            // and absen5.tgl_absen='$tgl' 
+            // and NOT EXISTS (SELECT * FROM approval_ijin WHERE absen5.id_absen = approval_ijin.id_absen and approval_ijin.id_admin='$id_admin_instansi' AND approval_ijin.status_approval <> '3') order by absen5.tgl_absen asc";
+            // $sql = "
+            // SELECT IF((SELECT status_approval FROM approval_ijin WHERE approval_ijin.id_absen=absen5.id_absen)<>3,
+            // (SELECT status_approval FROM approval_ijin WHERE approval_ijin.id_absen=absen5.id_absen),1) as status_approv,
+            // IF((SELECT status_approval FROM approval_ijin WHERE approval_ijin.id_absen=absen5.id_absen)<>3,
+            // (SELECT durasi FROM approval_ijin WHERE approval_ijin.id_absen=absen5.id_absen)
+            // ,1) as durasi, status,
+            // absen5.* 
+            // FROM `absen5` WHERE absen5.tgl_absen='$tgl' AND absen5.id_admin_instansi=$id_admin_instansi
+            // ";
+            $sql = "CALL GetAbsenHariIni('$id_admin_instansi','$tgl');";
+
+        }else{
+            //$sql = "SELECT * from absen5 WHERE  EXISTS (SELECT * FROM approval_ijin WHERE absen5.id_absen = approval_ijin.id_absen and approval_ijin.id_admin='$id_admin_instansi' and approval_ijin.status_approval <> '3') or absen5.id_admin_instansi = '$id_admin_instansi' and absen5.status ='1' order by tgl_absen asc";
+            // $sql = "
+            //     SELECT * from absen5 
+            //     WHERE  
+            //     absen5.id_admin_instansi = '$id_admin_instansi' 
+            //     and absen5.tgl_absen=date_format(now(),'%Y-%m-%d')
+            //     and absen5.status ='1'
+            //     and NOT EXISTS (SELECT * FROM approval_ijin WHERE absen5.id_absen = approval_ijin.id_absen and approval_ijin.id_admin='$id_admin_instansi' AND approval_ijin.tgl_pengajuan=date_format(now(),'%Y-%m-%d') AND approval_ijin.status_approval <> '3') order by absen5.tgl_absen asc";
+            
+            $sql = "CALL GetAbsenHariIni('$id_admin_instansi',".date('Y-m-d').");";
+        }
         $query = $this->db->query($sql);
         return $query->result_array();
         //return $this->db->get('absen5')->result_array();
